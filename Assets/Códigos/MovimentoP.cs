@@ -2,28 +2,39 @@ using UnityEngine;
 
 public class MovimentoP : MonoBehaviour
 {
+    public float velocidade = 5f;
+    public PuloP Plar;
 
-    private Rigidbody rb;
-    public float velocidade;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Start()
     {
-
-        rb = GetComponent<Rigidbody>();
+        PuloP Plar = GetComponent<PuloP>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float moveH = Input.GetAxis("Horizontal");
-        float moveV = Input.GetAxis("Vertical");
+        float moverHorizontal = Input.GetAxis("Horizontal");
+        float moverVertical = Input.GetAxis("Vertical");
+
+        Vector3 frenteDaCamera = Camera.main.transform.forward;
+        Vector3 direitaDaCamera = Camera.main.transform.right;
+
+        frenteDaCamera.y = 0;
+        direitaDaCamera.y = 0;
+        frenteDaCamera.Normalize();
+        direitaDaCamera.Normalize();
+
+        Vector3 direcaoFinal = (frenteDaCamera * moverVertical) + (direitaDaCamera * moverHorizontal);
+
+        transform.Translate(direcaoFinal * velocidade * Time.deltaTime, Space.World);
 
 
-        Vector3 direcao = new Vector3(moveV, 0, moveH);
-
-
-        rb.AddForce(velocidade * direcao * 1);
-
+        if (Plar.chao == false)
+        {
+            velocidade = 8f;
+        }
+        else if (Plar.chao == true)
+        {
+            velocidade = 10f;
+        }
     }
 }
