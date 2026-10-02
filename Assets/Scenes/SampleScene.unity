@@ -882,7 +882,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341215259}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1024,6 +1024,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.003
   m_Center: {x: 0, y: 0.004, z: 0}
+--- !u!114 &341215268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341215259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7eddd6903fb714b9bee436f436221b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movimento
+  velocidade: 150
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1400,7 +1413,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 478374450}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1452,7 +1465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d9efbd44d0e1f4bbf281ed4c316108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::ChecarCh\xE3o"
-  Player: {fileID: 601214467}
+  Player: {fileID: 601214470}
 --- !u!1 &601214461 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6676154214581106216, guid: 826b875819631714d985f29989d93919, type: 3}
@@ -1466,7 +1479,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601214461}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1608,20 +1621,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.003
   m_Center: {x: 0, y: 0.004, z: 0}
---- !u!114 &601214466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601214461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d9efbd44d0e1f4bbf281ed4c316108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: "Assembly-CSharp::ChecarCh\xE3o"
-  Player: {fileID: 601214467}
---- !u!114 &601214467
+--- !u!114 &601214470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1634,21 +1634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuloP
   chao: 1
-  "For\xE7aPulo": 0
---- !u!114 &601214468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 601214461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa7eddd6903fb714b9bee436f436221b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MovimentoP
-  velocidade: 5
-  Plar: {fileID: 601214467}
+  "For\xE7aPulo": 5000
 --- !u!1 &633318223 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7359238419228175008, guid: 826b875819631714d985f29989d93919, type: 3}
@@ -1764,7 +1750,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633318223}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1816,7 +1802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20d9efbd44d0e1f4bbf281ed4c316108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: "Assembly-CSharp::ChecarCh\xE3o"
-  Player: {fileID: 601214467}
+  Player: {fileID: 601214470}
 --- !u!4 &664552733 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4602d833a140b8e48ab46f68e9444011, type: 3}
@@ -2129,7 +2115,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023339299}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.5
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2492,7 +2478,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224790483}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2647,7 +2633,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1246245750}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2789,6 +2775,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.003
   m_Center: {x: 0, y: 0.004, z: 0}
+--- !u!114 &1246245759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246245750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa7eddd6903fb714b9bee436f436221b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Movimento
+  velocidade: 150
 --- !u!1 &1259524899 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6316818239010239085, guid: 826b875819631714d985f29989d93919, type: 3}
@@ -3070,7 +3069,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599681973}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.2
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3497,7 +3496,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1795061858}
   serializedVersion: 5
-  m_Mass: 1
+  m_Mass: 0.6
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3847,13 +3846,7 @@ PrefabInstance:
       addedObject: {fileID: 601214463}
     - targetCorrespondingSourceObject: {fileID: 6676154214581106216, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 601214468}
-    - targetCorrespondingSourceObject: {fileID: 6676154214581106216, guid: 826b875819631714d985f29989d93919, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 601214467}
-    - targetCorrespondingSourceObject: {fileID: 6676154214581106216, guid: 826b875819631714d985f29989d93919, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 601214466}
+      addedObject: {fileID: 601214470}
     - targetCorrespondingSourceObject: {fileID: -9129380620287348911, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1202692092}
@@ -3956,6 +3949,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -986084725972329445, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 341215264}
+    - targetCorrespondingSourceObject: {fileID: -986084725972329445, guid: 826b875819631714d985f29989d93919, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 341215268}
     - targetCorrespondingSourceObject: {fileID: -9059506823015610029, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224790486}
@@ -3986,6 +3982,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7886379576750465763, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1246245755}
+    - targetCorrespondingSourceObject: {fileID: 7886379576750465763, guid: 826b875819631714d985f29989d93919, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1246245759}
     - targetCorrespondingSourceObject: {fileID: 7246348218078387168, guid: 826b875819631714d985f29989d93919, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1795061861}
