@@ -8,6 +8,9 @@ public class MovPlayer : MonoBehaviour
     private void Start()
     {
         PuloP Plar = GetComponent<PuloP>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
     }
 
     void Update()

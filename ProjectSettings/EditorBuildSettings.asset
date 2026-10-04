@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/TelaInicial.unity
+    guid: 588418d0f8cc37a40b4b7b857f1af912
+  - enabled: 1
+    path: Assets/Scenes/Dia12.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Pascoa.unity
+    guid: 4d97a8e2085f71647b6156d23154f5dd
+  - enabled: 1
+    path: Assets/Scenes/Natal.unity
+    guid: 71eaf1bd6c6107647946eb96192b16d1
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
