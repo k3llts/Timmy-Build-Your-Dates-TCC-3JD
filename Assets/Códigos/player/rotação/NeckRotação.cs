@@ -15,8 +15,8 @@ public class RotacaoPescocoCamera : MonoBehaviour
 
         // Configura as forças físicas do pescoço para serem firmes e suaves
         JointDrive drive = joint.slerpDrive;
-        drive.positionSpring = 1300f; // Força para olhar para a câmera
-        drive.positionDamper = 50f;   // Amortecimento para eliminar tremores
+        drive.positionSpring = 2000f; // Força para olhar para a câmera
+        drive.positionDamper = 500f;   // Amortecimento para eliminar tremores
         drive.maximumForce = float.MaxValue;
         joint.slerpDrive = drive;
 
