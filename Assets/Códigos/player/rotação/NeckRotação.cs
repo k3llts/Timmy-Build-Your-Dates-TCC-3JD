@@ -4,20 +4,19 @@ using UnityEngine;
 public class RotacaoPescocoCamera : MonoBehaviour
 {
     private ConfigurableJoint joint;
-    private Transform ossoPai;
+    private Transform osso;
 
     void Start()
     {
         joint = GetComponent<ConfigurableJoint>();
 
-        // Descobre automaticamente o osso do peito/corpo onde o pescoço está conectado
-        ossoPai = joint.connectedBody != null ? joint.connectedBody.transform : transform.parent;
+        //pega o osso q o pescoço ta conectado
+        osso = joint.connectedBody != null ? joint.connectedBody.transform : transform.parent;
 
-        // Configura as forças físicas do pescoço para serem firmes e suaves
+        //as força
         JointDrive drive = joint.slerpDrive;
-        drive.positionSpring = 2000f; // Força para olhar para a câmera
-        drive.positionDamper = 500f;   // Amortecimento para eliminar tremores
-        drive.maximumForce = float.MaxValue;
+        drive.positionSpring = 2000f;//força
+        drive.positionDamper = 500f;//suaveza
         joint.slerpDrive = drive;
 
         joint.rotationDriveMode = RotationDriveMode.Slerp;
@@ -25,22 +24,20 @@ public class RotacaoPescocoCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 1. Pega a direção da câmera no horizonte
-        Vector3 frenteDaCamera = Camera.main.transform.forward;
-        frenteDaCamera.y = 0;
-        frenteDaCamera.Normalize();
+        //direção da camera
+        Vector3 frenteCamera = Camera.main.transform.forward;
+        frenteCamera.y = 0;
+        frenteCamera.Normalize();
 
-        if (frenteDaCamera != Vector3.zero && ossoPai != null)
-        {
-            // 2. Rotação desejada no mundo global
-            Quaternion rotacaoMundoAlvo = Quaternion.LookRotation(frenteDaCamera);
 
-            // 3. Converte a rotação da câmera para o espaço local do osso pai (peito)
-            // Isso impede que o pescoço trema ou trave quando o corpo gira
-            Quaternion rotationalLocalAlvo = Quaternion.Inverse(ossoPai.rotation) * rotacaoMundoAlvo;
+        //coloca o valor da rotação da camera em uma classe
+        Quaternion rotacaoMundoAlvo = Quaternion.LookRotation(frenteCamera);
 
-            // 4. Aplica na Configurable Joint com a inversão física necessária
-            joint.targetRotation = Quaternion.Inverse(rotationalLocalAlvo);
-        }
+        //passa o valor convertido quaternion para outra classe final
+        Quaternion rotationalLocalAlvo = Quaternion.Inverse(osso.rotation) * rotacaoMundoAlvo;
+
+        //aplica o giro
+        joint.targetRotation = Quaternion.Inverse(rotationalLocalAlvo);
+    
     }
 }
