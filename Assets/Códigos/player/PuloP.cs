@@ -12,6 +12,7 @@ public class PuloP : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        chao = false;
     }
 
     // Update is called once per frame
