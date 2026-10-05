@@ -13,6 +13,8 @@ public class LevantarBracoEsq : MonoBehaviour
     public float forcaMinimaSpring = 25f;
     public float forcaMinimaDamper = 5f;
 
+
+
     void Start()
     {
         joint = GetComponent<ConfigurableJoint>();
