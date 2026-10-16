@@ -4,6 +4,8 @@ using UnityEngine;
 public class RotacaoChestPelaCamera : MonoBehaviour
 {
     private ConfigurableJoint joint;
+    public float forfa = 500;
+    public float suavizations = 10;
 
     void Start()
     {
@@ -12,8 +14,8 @@ public class RotacaoChestPelaCamera : MonoBehaviour
 
         JointDrive drive = joint.slerpDrive;
         
-            drive.positionSpring = 10000f; //forfa
-            drive.positionDamper = 100f;  //suavizations
+            drive.positionSpring = forfa; 
+            drive.positionDamper = suavizations; 
             joint.slerpDrive = drive;
         
         joint.rotationDriveMode = RotationDriveMode.Slerp;

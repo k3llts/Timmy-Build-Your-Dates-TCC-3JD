@@ -5,14 +5,17 @@ public class RotacaoOssoPelaCamera : MonoBehaviour
 {
     private ConfigurableJoint joint;
 
+    public float forfa = 500;
+    public float suavidade = 10;
+
     void Start()
     {
         joint = GetComponent<ConfigurableJoint>();
 
         JointDrive drive = joint.slerpDrive;
         
-            drive.positionSpring = 1000f; //força
-            drive.positionDamper = 100f; //suavidão
+            drive.positionSpring = forfa; 
+            drive.positionDamper = suavidade;
             joint.slerpDrive = drive;
         
 
