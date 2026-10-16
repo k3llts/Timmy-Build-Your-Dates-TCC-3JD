@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
-    public float velocidade = 5f;
+    public float velocidade = 8f;
     public PuloP Plar;
 
     private void Start()
@@ -33,11 +33,20 @@ public class MovPlayer : MonoBehaviour
 
         if (Plar.chao == false)
         {
-            velocidade = 6f;
+            velocidade = 5f;
         }
         else if (Plar.chao == true)
         {
             velocidade = 8f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            velocidade = velocidade+2;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            velocidade = velocidade + 2;
         }
     }
 }

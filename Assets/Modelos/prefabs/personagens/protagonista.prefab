@@ -1407,7 +1407,6 @@ GameObject:
   - component: {fileID: 5654942317847275264}
   - component: {fileID: 3117570480128098138}
   - component: {fileID: 1945776581103786362}
-  - component: {fileID: 9056616584745815436}
   m_Layer: 0
   m_Name: arm.R
   m_TagString: Player
@@ -1581,22 +1580,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &9056616584745815436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2874015845486064222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c874807c241264b478507a632453c1cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevantarBracos
-  forcaMaximaSpring: 10000
-  forcaMaximaDamper: 100
-  forcaMinimaSpring: 25
-  forcaMinimaDamper: 5
 --- !u!1 &2883615955292422751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1886,7 +1869,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5594538511065993587}
-  - component: {fileID: 3348420386164839471}
   - component: {fileID: 8007719372504349065}
   - component: {fileID: 2490559065894547287}
   - component: {fileID: 4075842611298456872}
@@ -1919,27 +1901,6 @@ Transform:
   - {fileID: 1846536342675251277}
   m_Father: {fileID: 3320521419474695078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3348420386164839471
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3939606734646732526}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.003
-  m_Center: {x: 0, y: 0.004, z: 0}
 --- !u!54 &8007719372504349065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2109,6 +2070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dd978a3472d294e9a890d5a7a09116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoOssoPrincipal
+  forfa: 500
+  suavidade: 10
 --- !u!1 &4155815952675381095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c892367f613e943b9d361daa98c7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoDoOssoFisico
+  forca: 5000
+  suaveza: 50
 --- !u!1 &4857510465709902158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3109,7 +3074,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7028314436733676284}
-  - component: {fileID: 6078912413759712603}
   - component: {fileID: 3408512265292758407}
   - component: {fileID: 1202129863838503686}
   - component: {fileID: 4020809664322498669}
@@ -3138,27 +3102,6 @@ Transform:
   - {fileID: 2093158969482614}
   m_Father: {fileID: 5594538511065993587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &6078912413759712603
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6810069822807694113}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.003
-  m_Center: {x: 0, y: 0.004, z: 0}
 --- !u!54 &3408512265292758407
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3300,6 +3243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225b9d776451c284cb2cb617566d4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoChestPelaCamera
+  forfa: 500
+  suavizations: 10
 --- !u!1 &7736472993470330606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3691,7 +3636,6 @@ GameObject:
   - component: {fileID: 5979266798905322164}
   - component: {fileID: 9089050435892923121}
   - component: {fileID: 4001055741770963697}
-  - component: {fileID: 5681438732397415172}
   m_Layer: 0
   m_Name: arm.L
   m_TagString: Player
@@ -3865,22 +3809,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &5681438732397415172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9053211750291148818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b232ce39477a8d64d8f9c976dfd4e93a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LevantarBracoDir
-  forcaMaximaSpring: 10000
-  forcaMaximaDamper: 100
-  forcaMinimaSpring: 25
-  forcaMinimaDamper: 5
 --- !u!1 &9158008011931926699
 GameObject:
   m_ObjectHideFlags: 0
