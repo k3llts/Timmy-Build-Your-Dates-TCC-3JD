@@ -427,7 +427,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 5561349426305759274, guid: 826b875819631714d985f29989d93919, type: 3}
+  - {fileID: 2100000, guid: b013ae00bdebdc640ad098157adc4802, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -454,7 +454,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4068373912626513877, guid: 826b875819631714d985f29989d93919, type: 3}
+  m_Mesh: {fileID: -6997738617139288167, guid: 473ca7770bea81b479e113985a41b1e3, type: 3}
   m_Bones:
   - {fileID: 5594538511065993587}
   - {fileID: 7028314436733676284}
@@ -686,9 +686,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4974187098932303012}
-  - component: {fileID: 1296346506454801831}
   - component: {fileID: 294096467799418623}
   - component: {fileID: 1802444326004573362}
+  - component: {fileID: 6825097794151301595}
+  - component: {fileID: 285355183709772412}
   m_Layer: 0
   m_Name: hand.R
   m_TagString: Player
@@ -712,27 +713,6 @@ Transform:
   - {fileID: 6652326247769787926}
   m_Father: {fileID: 3178940194248390305}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1296346506454801831
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624716290678265537}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.0035
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &294096467799418623
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -862,6 +842,43 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &6825097794151301595
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624716290678265537}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003
+  m_Height: 0.011
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.001, z: 0}
+--- !u!114 &285355183709772412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1624716290678265537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe070ae42a76f44a80447e804a657ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaoGrudar
+  botaoMouse: 0
+  junta: {fileID: 0}
 --- !u!1 &1766005487174953044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1424,7 @@ GameObject:
   - component: {fileID: 5654942317847275264}
   - component: {fileID: 3117570480128098138}
   - component: {fileID: 1945776581103786362}
+  - component: {fileID: 1449420668236299441}
   m_Layer: 0
   m_Name: arm.R
   m_TagString: Player
@@ -1580,6 +1598,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &1449420668236299441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2874015845486064222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c874807c241264b478507a632453c1cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevantarBracoEsq
+  forcaMaximaSpring: 10000
+  forcaMaximaDamper: 800
+  forcaMinimaSpring: 80
+  forcaMinimaDamper: 30
 --- !u!1 &2883615955292422751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1589,9 +1623,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2053170017650051298}
-  - component: {fileID: 3513100065880583640}
   - component: {fileID: 7042516206290029408}
   - component: {fileID: 8714444112332178967}
+  - component: {fileID: 6222208102892070407}
+  - component: {fileID: 559447036329800469}
   m_Layer: 0
   m_Name: hand.L
   m_TagString: Player
@@ -1615,27 +1650,6 @@ Transform:
   - {fileID: 5650925482732799085}
   m_Father: {fileID: 172467860628629625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &3513100065880583640
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2883615955292422751}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.0035
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &7042516206290029408
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1765,6 +1779,43 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &6222208102892070407
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883615955292422751}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.003
+  m_Height: 0.011
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.001, z: 0}
+--- !u!114 &559447036329800469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2883615955292422751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fe070ae42a76f44a80447e804a657ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaoGrudar
+  botaoMouse: 1
+  junta: {fileID: 0}
 --- !u!1 &3408058253823839279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1790,7 +1841,7 @@ Transform:
   m_GameObject: {fileID: 3408058253823839279}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.921137, y: 3.54, z: 2.3608747}
+  m_LocalPosition: {x: -158.5, y: 6.19, z: 2.3608747}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1874,6 +1925,7 @@ GameObject:
   - component: {fileID: 4075842611298456872}
   - component: {fileID: 4438625893825893640}
   - component: {fileID: 8509388343702323554}
+  - component: {fileID: 5284029168514696918}
   m_Layer: 0
   m_Name: hips
   m_TagString: Player
@@ -2043,7 +2095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PuloP
   chao: 1
-  "For\xE7aPulo": 5000
+  "For\xE7aPulo": 4800
 --- !u!114 &4438625893825893640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2056,8 +2108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa7eddd6903fb714b9bee436f436221b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MovPlayer
-  velocidade: 5
+  velocidade: 7
   Plar: {fileID: 4075842611298456872}
+  gru: {fileID: 0}
 --- !u!114 &8509388343702323554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,8 +2123,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3dd978a3472d294e9a890d5a7a09116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoOssoPrincipal
-  forfa: 500
-  suavidade: 10
+  forfa: 1000
+  suavidade: 15
+--- !u!136 &5284029168514696918
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3939606734646732526}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0025
+  m_Height: 0.012
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.0045, z: 0}
 --- !u!1 &4155815952675381095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2468,8 +2544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c892367f613e943b9d361daa98c7e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoDoOssoFisico
-  forca: 5000
-  suaveza: 50
+  forca: 100
+  suaveza: 5
+  limiteAnguloY: 70
 --- !u!1 &4857510465709902158
 GameObject:
   m_ObjectHideFlags: 0
@@ -2889,9 +2966,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3178940194248390305}
-  - component: {fileID: 177809445014292193}
   - component: {fileID: 5043016315781793150}
   - component: {fileID: 9061739260695182543}
+  - component: {fileID: 575803519787252785}
   m_Layer: 0
   m_Name: forearm.R
   m_TagString: Player
@@ -2915,27 +2992,6 @@ Transform:
   - {fileID: 4974187098932303012}
   m_Father: {fileID: 1243363650284691057}
   m_LocalEulerAnglesHint: {x: 25.15, y: 0, z: -1.852}
---- !u!135 &177809445014292193
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6735695940041376217}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.0035
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5043016315781793150
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3065,6 +3121,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &575803519787252785
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6735695940041376217}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0025
+  m_Height: 0.009
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.002, z: 0}
 --- !u!1 &6810069822807694113
 GameObject:
   m_ObjectHideFlags: 0
@@ -3077,6 +3156,7 @@ GameObject:
   - component: {fileID: 3408512265292758407}
   - component: {fileID: 1202129863838503686}
   - component: {fileID: 4020809664322498669}
+  - component: {fileID: 1484996289431086895}
   m_Layer: 0
   m_Name: chest
   m_TagString: Player
@@ -3243,8 +3323,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225b9d776451c284cb2cb617566d4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RotacaoChestPelaCamera
-  forfa: 500
+  forfa: 10000
   suavizations: 10
+--- !u!136 &1484996289431086895
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810069822807694113}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0025
+  m_Height: 0.012
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.002, z: 0}
 --- !u!1 &7736472993470330606
 GameObject:
   m_ObjectHideFlags: 0
@@ -3448,9 +3551,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 172467860628629625}
-  - component: {fileID: 1209638670367817289}
   - component: {fileID: 1355198671284937474}
   - component: {fileID: 3596343637027183673}
+  - component: {fileID: 6812352712001616659}
   m_Layer: 0
   m_Name: forearm.L
   m_TagString: Player
@@ -3474,27 +3577,6 @@ Transform:
   - {fileID: 2053170017650051298}
   m_Father: {fileID: 2432006899172860512}
   m_LocalEulerAnglesHint: {x: 25.15, y: 0.52, z: 2.495}
---- !u!135 &1209638670367817289
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8242615015858087424}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.0035
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &1355198671284937474
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3624,6 +3706,29 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!136 &6812352712001616659
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8242615015858087424}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0025
+  m_Height: 0.009
+  m_Direction: 1
+  m_Center: {x: 0, y: -0.002, z: 0}
 --- !u!1 &9053211750291148818
 GameObject:
   m_ObjectHideFlags: 0
@@ -3636,6 +3741,7 @@ GameObject:
   - component: {fileID: 5979266798905322164}
   - component: {fileID: 9089050435892923121}
   - component: {fileID: 4001055741770963697}
+  - component: {fileID: 598046128708592032}
   m_Layer: 0
   m_Name: arm.L
   m_TagString: Player
@@ -3809,6 +3915,22 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &598046128708592032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9053211750291148818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5a2c99a9adbbe4a9df4031219d6e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevantarBracoDir
+  forcaMaximaSpring: 10000
+  forcaMaximaDamper: 800
+  forcaMinimaSpring: 80
+  forcaMinimaDamper: 30
 --- !u!1 &9158008011931926699
 GameObject:
   m_ObjectHideFlags: 0

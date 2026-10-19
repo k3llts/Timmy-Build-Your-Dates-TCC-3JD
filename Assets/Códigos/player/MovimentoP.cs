@@ -4,6 +4,7 @@ public class MovPlayer : MonoBehaviour
 {
     public float velocidade = 8f;
     public PuloP Plar;
+    public MaoGrudar gru;
 
     private void Start()
     {
@@ -33,20 +34,12 @@ public class MovPlayer : MonoBehaviour
 
         if (Plar.chao == false)
         {
-            velocidade = 5f;
-        }
-        else if (Plar.chao == true)
-        {
-            velocidade = 8f;
-        }
+            velocidade = 4f;
+        };
 
-        if (Input.GetKeyDown(KeyCode.LeftShift)) 
+        if (Plar.chao == true)
         {
-            velocidade = velocidade+2;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            velocidade = velocidade + 2;
-        }
+            velocidade = 6f;
+        };
     }
 }
