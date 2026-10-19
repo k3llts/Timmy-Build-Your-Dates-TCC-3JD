@@ -3,7 +3,7 @@ using UnityEngine;
 public class MaoGrudar : MonoBehaviour
 {
     public int botaoMouse = 0; // 0 para botão esquerdo, 1 para botão direito
-    private FixedJoint junta;
+    [HideInInspector] public FixedJoint junta;
 
     void Update()
     {
