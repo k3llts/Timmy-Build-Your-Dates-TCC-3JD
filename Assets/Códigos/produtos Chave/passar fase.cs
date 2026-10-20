@@ -1,31 +1,28 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Natal : MonoBehaviour
+
+public class passarfase : MonoBehaviour
 {
-    public bool coletou1 = false;
+    public bool PodeIr = false;
+    public static int Pontos;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if(other.CompareTag("Player") && PodeIr) 
         {
-            if (coletou1)
-            {
-                SceneManager.LoadScene("TelaInicial");
-            }
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
-
 }
