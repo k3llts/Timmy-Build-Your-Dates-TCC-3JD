@@ -5,9 +5,7 @@ public class Pausi : MonoBehaviour
 {
     public GameObject TelaPause;
     public GameObject TextAvanço;
-    public dia12 day12;
-    public Natal Natal;
-    public Pascoa Pasco;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,37 +16,7 @@ public class Pausi : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            Pausar();
-        }
-
-        if (day12 != null)
-        {
-
-            if (day12.coletou1)
-            {
-                Avançar();
-            }
-        }
-
-        if (Pasco != null )
-        {
-            if (Pasco.coletou1)
-            {
-                Avançar();
-            }
-        }
-
-        if (Natal != null) 
-        {
-            if (Natal.coletou1) 
-            {
-                Avançar();
-            }
-        }
-        
+    {  
     }
 
     public void Pausar() 
