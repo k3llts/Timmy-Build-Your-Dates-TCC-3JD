@@ -7,7 +7,7 @@ Este é um trabalho de um grupo de TCC da escola ETEC Prof° Basilides de Godoy.
 - Kelvin Pereira Lima
 - Victor Mollo Cabral
 - Daniel de Souza Alves
-- Henrique De Moraes Tomazini 
+- Henrique De Morais Tomazini 
 
 ## Sinopse
 
