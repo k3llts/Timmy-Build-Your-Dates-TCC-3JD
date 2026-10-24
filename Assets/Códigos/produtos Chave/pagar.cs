@@ -5,6 +5,7 @@ public class pagar : MonoBehaviour
 {
     public GameObject Mensagen;
     public passarfase passar;
+    private bool temProduto = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,25 +20,29 @@ public class pagar : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Melhor")) 
+        if (other.CompareTag("Melhor") && !temProduto) 
         {
             Mensagen.SetActive(true);
             passar.PodeIr = true;
-            passarfase.Pontos += 100;
+            passarfase.Pontos = passarfase.Pontos + 100;
+            temProduto = true;
+            Debug.Log("Passou presente de 100");
         }
 
-        if (other.CompareTag("Médio"))
+        if (other.CompareTag("Médio") && !temProduto)
         {
             Mensagen.SetActive(true);
             passar.PodeIr = true;
-            passarfase.Pontos += 50;
+            passarfase.Pontos = passarfase.Pontos + 50;
+            temProduto = true;
         }
 
-        if (other.CompareTag("Ruim"))
+        if (other.CompareTag("Ruim") && !temProduto)
         {
             Mensagen.SetActive(true);
             passar.PodeIr = true;
-            passarfase.Pontos += 10;
+            passarfase.Pontos = passarfase.Pontos + 10;
+            temProduto = true;
         }
 
 
@@ -46,25 +51,30 @@ public class pagar : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Melhor"))
+        if (other.CompareTag("Melhor") && temProduto)
         {
             Mensagen.SetActive(false);
             passar.PodeIr = false;
-            passarfase.Pontos -= 100;
+            passarfase.Pontos = passarfase.Pontos - 100;
+            temProduto = false;
+            Debug.Log("saiu presente de 100");
+            
         }
 
-        if (other.CompareTag("Médio"))
+        if (other.CompareTag("Médio") && temProduto)
         {
             Mensagen.SetActive(false);
             passar.PodeIr = false;
-            passarfase.Pontos -= 50;
+            passarfase.Pontos = passarfase.Pontos - 50;
+            temProduto = false;
         }
 
-        if (other.CompareTag("Ruim"))
+        if (other.CompareTag("Ruim") && temProduto)
         {
             Mensagen.SetActive(false);
             passar.PodeIr = false;
-            passarfase.Pontos -= 10;
+            passarfase.Pontos = passarfase.Pontos - 10;
+            temProduto = false;
         }
 
     }
