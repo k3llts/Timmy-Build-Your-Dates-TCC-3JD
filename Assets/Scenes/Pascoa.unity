@@ -474,6 +474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::passarfase
   PodeIr: 0
+  FimTexto: {fileID: 0}
+  HitPagar: {fileID: 667422829}
 --- !u!65 &809329134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -843,7 +845,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1351554834}
   - component: {fileID: 1351554833}
-  - component: {fileID: 1351554832}
   m_Layer: 0
   m_Name: void
   m_TagString: Untagged
@@ -851,18 +852,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1351554832
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351554831}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 556530e88649f0343999b588da9edfdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Pascoa
 --- !u!65 &1351554833
 BoxCollider:
   m_ObjectHideFlags: 0

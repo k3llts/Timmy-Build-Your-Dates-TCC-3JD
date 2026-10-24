@@ -615,6 +615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::passarfase
   PodeIr: 0
+  FimTexto: {fileID: 0}
+  HitPagar: {fileID: 1196568289}
 --- !u!65 &470860170
 BoxCollider:
   m_ObjectHideFlags: 0
