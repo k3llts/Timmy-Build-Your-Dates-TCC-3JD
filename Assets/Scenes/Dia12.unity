@@ -2776,6 +2776,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: protagonista
       objectReference: {fileID: 0}
+    - target: {fileID: 4075842611298456872, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: forcaDoPulo
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 5549721077178020166, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -191.18

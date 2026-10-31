@@ -2,34 +2,28 @@ using UnityEngine;
 
 public class PuloP : MonoBehaviour
 {
-
+    private Rigidbody rb; // Mude para Rigidbody2D se estiver fazendo um jogo 2D
+    public float forcaDoPulo = 80.0f;
     public bool chao = true;
-    private Rigidbody rb;
-    public float For�aPulo;
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        chao = false;
+        rb = GetComponent<Rigidbody>(); // Use GetComponent<Rigidbody2D>() no 2D
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float Jump = Input.GetAxis("Jump");
-        Vector3 altura = new Vector3(0, Jump, 0);
-
-
-        if (Input.GetAxis("Jump") > 0)
+        // Pula quando a tecla Espaço é pressionada e o personagem está no chão
+        if (Input.GetKeyDown(KeyCode.Space) && chao)
         {
-            if (chao == true)
-            {
-                rb.AddForce(For�aPulo * altura * 1);
-                chao = false;
-            }
+            Pular();
         }
+    }
 
+    void Pular()
+    {
+        // Aplica força para cima usando Impulse
+        rb.AddForce(Vector3.up * forcaDoPulo, ForceMode.Impulse); // No 2D use Vector2.up e ForceMode2D.Impulse
+        chao = false;
     }
 }
