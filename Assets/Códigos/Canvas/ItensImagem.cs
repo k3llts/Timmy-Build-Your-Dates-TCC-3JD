@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class ItensImagem : MonoBehaviour
 {
-    //Dia dos namorados
+    [Header("DIA DOS NAMORADOS")]
     public RawImage SemUrso;
     public Texture2D Urso;
 
@@ -16,7 +16,18 @@ public class ItensImagem : MonoBehaviour
     public Texture2D BomBom;
 
 
-    //Natal
+    [Header("PASCOA")]
+    public RawImage SemCoolOvo;
+    public Texture2D CoolOvo;
+
+    public RawImage SemCueio;
+    public Texture2D Cueio;
+
+    public RawImage SemOvobase;
+    public Texture2D OvoBase;
+
+
+    [Header("NATAL")]
     public RawImage SemGlobo;
     public Texture2D Globo;
 
@@ -27,15 +38,7 @@ public class ItensImagem : MonoBehaviour
     public Texture2D Bengala;
 
 
-    //Pascoa
-    public RawImage SemCoolOvo;
-    public Texture2D CoolOvo;
-
-    public RawImage SemCueio;
-    public Texture2D Cueio;
-
-    public RawImage SemOvobase;
-    public Texture2D OvoBase;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
