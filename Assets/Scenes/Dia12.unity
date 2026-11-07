@@ -1051,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6322589643c01534389cdecbf42fb8cb, type: 3}
       propertyPath: m_TagString
-      value: Ruim
+      value: MeiBom
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1267,7 +1267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: afb223ed4797ade41afaf4532b8999d6, type: 3}
       propertyPath: m_TagString
-      value: "M\xE9dio"
+      value: Corapeito
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1450,7 +1450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1196568290
 Transform:
   m_ObjectHideFlags: 0
@@ -1730,7 +1730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5b780e331e431054788b99da6b407d0b, type: 3}
       propertyPath: m_TagString
-      value: Melhor
+      value: Urso
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

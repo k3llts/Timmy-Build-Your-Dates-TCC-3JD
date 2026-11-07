@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 08df9ecc176a8b54c8155fa64eec4922, type: 3}
       propertyPath: m_TagString
-      value: Ruim
+      value: Bengala
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -735,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0cd678571b2643948850265134db6293, type: 3}
       propertyPath: m_TagString
-      value: "M\xE9dio"
+      value: Pantelone
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -996,7 +996,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: f42edd803cf77de4b94586644993eaf2, type: 3}
       propertyPath: m_TagString
-      value: Melhor
+      value: Globo
       objectReference: {fileID: 0}
     - target: {fileID: 2987499397681555449, guid: f42edd803cf77de4b94586644993eaf2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2053,6 +2053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pausi
   TelaPause: {fileID: 6063595857307711505}
   "TextAvan\xE7o": {fileID: 6551774720354315045}
+  Ativo: 0
 --- !u!114 &2356988712900867710
 MonoBehaviour:
   m_ObjectHideFlags: 0

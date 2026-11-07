@@ -628,7 +628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c0c99416ed470147be906d7d433e71a, type: 3}
       propertyPath: m_TagString
-      value: "M\xE9dio"
+      value: Cueio
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -817,7 +817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9a2cfb70b27a37945bceb59e529b9be3, type: 3}
       propertyPath: m_TagString
-      value: Ruim
+      value: NormalOvo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1479,7 +1479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ac5177ec8a50ade4f8baaee3b1934d2a, type: 3}
       propertyPath: m_TagString
-      value: Melhor
+      value: CoolOvo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3214,6 +3214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Pausi
   TelaPause: {fileID: 3866844609415975723}
   "TextAvan\xE7o": {fileID: 4279376788970192927}
+  Ativo: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
