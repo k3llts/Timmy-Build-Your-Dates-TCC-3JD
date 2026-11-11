@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MovPlayer : MonoBehaviour
 {
-    public float velocidade = 8f;
+    public float velocidade = 10f;
     public PuloP Plar;
     public MaoGrudar gru;
 
@@ -32,14 +32,5 @@ public class MovPlayer : MonoBehaviour
         transform.Translate(direcaoFinal * velocidade * Time.deltaTime, Space.World);
 
 
-        if (Plar.chao == false)
-        {
-            velocidade = 4f;
-        };
-
-        if (Plar.chao == true)
-        {
-            velocidade = 6f;
-        };
     }
 }
