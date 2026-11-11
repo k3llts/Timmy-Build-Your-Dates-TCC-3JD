@@ -8,53 +8,53 @@ public class RotacaoPescocoCamera : MonoBehaviour
 
     public float forca = 5000;
     public float suaveza = 50;
-
-    public float limiteAnguloY = 70f; // Máximo que o pescoço pode virar para a esquerda ou direita (ex: 70 graus)
+    // O máximo que o pescoço pode virar para os lados (ex: 70 graus para a esquerda ou direita)
+    public float limiteAnguloY = 70f;
 
     void Start()
     {
         joint = GetComponent<ConfigurableJoint>();
 
-        //pega o osso q o pescoço ta conectado
+        // Descobre qual é o osso do corpo onde o pescoço está preso (geralmente o peito/coluna)
         osso = joint.connectedBody != null ? joint.connectedBody.transform : transform.parent;
 
-        //as força
+        // Configura a força e o "freio" do pescoço para ele não girar rápido demais nem ficar mole
         JointDrive drive = joint.slerpDrive;
         drive.positionSpring = forca;
         drive.positionDamper = suaveza;
         joint.slerpDrive = drive;
-
         joint.rotationDriveMode = RotationDriveMode.Slerp;
     }
 
     void FixedUpdate()
     {
-        //direção da camera
+        // Descobre para onde a câmera está olhando, ignorando se ela olha para cima ou para baixo
         Vector3 frenteCamera = Camera.main.transform.forward;
         frenteCamera.y = 0;
         frenteCamera.Normalize();
 
-        //coloca o valor da rotação da camera em uma classe
+        // Transforma essa direção da câmera em uma rotação que a Unity entende
         Quaternion rotacaoMundoAlvo = Quaternion.LookRotation(frenteCamera);
 
-        //passa o valor convertido quaternion para outra classe final
+        // Calcula o quanto o pescoço precisa girar em relação ao corpo
         Quaternion rotationalLocalAlvo = Quaternion.Inverse(osso.rotation) * rotacaoMundoAlvo;
 
-        // --- SISTEMA DE LIMITE (ADICIONADO) ---
-        // Converte a rotação local para ângulos de Euler e extrai o eixo Y
+
+        // Pega o ângulo de giro para os lados (eixo Y) em graus normais
         float anguloY = rotationalLocalAlvo.eulerAngles.y;
 
-        // Corrige o ângulo da Unity para trabalhar com valores negativos (-180 a 180)
+        /* Ajusta a conta para que virar para a esquerda seja um número negativo (ex: -70) 
+         e virar para a direita seja positivo (ex: 70)*/
         if (anguloY > 180) anguloY -= 360;
 
-        // Limita o ângulo com base na variável que você configurou no Inspector
+        // Impede que o pescoço passe do limite máximo que você escolheu (evita girar 360 graus)
         anguloY = Mathf.Clamp(anguloY, -limiteAnguloY, limiteAnguloY);
 
-        // Recria a rotação local com o ângulo devidamente travado
+        // Monta a rotação final já com esse limite aplicado
         rotationalLocalAlvo = Quaternion.Euler(0, anguloY, 0);
-        // --------------------------------------
 
-        //aplica o giro
+
+        // Aplica o giro final na junta do pescoço (invertido porque esse componente da Unity funciona ao contrário)
         joint.targetRotation = Quaternion.Inverse(rotationalLocalAlvo);
     }
 }
