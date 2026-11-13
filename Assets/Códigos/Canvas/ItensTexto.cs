@@ -12,7 +12,7 @@ public class ItensTexto : MonoBehaviour
     [Header("PASCOA")]
     public TextMeshProUGUI ovoAura;
     public TextMeshProUGUI coeio;
-    public TextMeshProUGUI ovoMid;
+    public TextMeshProUGUI Cesta;
 
 
     [Header("NATAL")]
@@ -35,35 +35,35 @@ public class ItensTexto : MonoBehaviour
         if (TelaInicio.ursin == true)
         {
             urso.text = "Ursinho, Presente maravilhoso:     " +
-                "resuminho do pq a namorada gosta do urso";
+                "ursinho de pelucinha super fofinho, otimo como presente para o dia dos namorados.";
         }
         if (TelaInicio.coracao == true)
         {
             coracaixa.text = "caixa de coração, Presente bom:       " +
-                "resuminho do pq a namorada gosta do caixa de coração";
+                "uma caixa de bombom em formato de coração, mostra o quanto você ama o(a) seu(sua) namorado(a).";
         }
         if (TelaInicio.bombom == true)
         {
             bom.text = "caixa de bombom, Presente ruim:     " +
-                "resuminho do pq a namorada n gosta da caixa normal";
+                "Uma caixa... de bombom de marca... super genetica... pro dia dos Namorados.";
         }
 
 
         //pascoa
         if (TelaInicio.coolovo == true)
         {
-            ovoAura.text = "Ovo bonito, Presente maravilhoso:       " +
+            ovoAura.text = "The cooler ovo de pascoa, Presente maravilhoso: " +
                 "resuminho do pq a namorada gosta do ovo";
         }
         if (TelaInicio.cueio == true)
         {
-            coeio.text = "coelho de chocolate, Presente bom:        " +
-                "resuminho do pq a namorada gosta do coelho";
+            coeio.text = "Coelho Choculatudinho, Presente bom:        " +
+                "Ovo de pascoa de supermercado com orelhas de coelho, um exelente presente de pascoa para quem gosta de chocolate.";
         }
         if (TelaInicio.normalovo == true)
         {
-            ovoMid.text = "Ovo normal, Presente ruim:       " +
-                "resuminho do pq a namorada n gosta do ovo normal";
+            Cesta.text = "'Cesta de Ovos Coloridinhos, Presente ruim:    " +
+                "Uma opção de presente de pascoa caso você esteja mais apertado esse mês.";
         }
 
 
@@ -71,12 +71,12 @@ public class ItensTexto : MonoBehaviour
         if (TelaInicio.globo == true)
         {
             globo.text = "Globo de neve, Presente maravilhoso:      " +
-                "resuminho do pq a namorada gosta do globo";
+                "Um globo de natal, perfeito para presentear alguém especial no Natal.";
         }
         if (TelaInicio.pantelone == true)
         {
             pantelone.text = "panetone, Presente bom:       " +
-                "resuminho do pq a namorada gosta do panetone (pq ela prefiria o de chocolate mas n tinha no mercado)";
+                "Penetone, daqueles de frutinhas, é pro natal (O de chocolate seria melhor).";
         }
         if (TelaInicio.bengala == true)
         {
