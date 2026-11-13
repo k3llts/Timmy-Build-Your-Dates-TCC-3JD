@@ -23,8 +23,8 @@ public class ItensImagem : MonoBehaviour
     public RawImage SemCueio;
     public Texture2D Cueio;
 
-    public RawImage SemOvobase;
-    public Texture2D OvoBase;
+    public RawImage SemCesta;
+    public Texture2D Cesta;
 
 
     [Header("NATAL")]
@@ -138,7 +138,7 @@ public class ItensImagem : MonoBehaviour
     }
     public void OvoNormar()
     {
-        SemOvobase.texture = OvoBase;
+        SemCesta.texture = Cesta;
     }
 
 }
