@@ -5,7 +5,7 @@ public class RotacaoOssoPelaCamera : MonoBehaviour
 {
     private ConfigurableJoint joint;
 
-    public float forfa = 500;
+    public float forfa = 1000;
     public float suavidade = 10;
 
     void Start()
