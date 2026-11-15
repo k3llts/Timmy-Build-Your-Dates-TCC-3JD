@@ -13,7 +13,7 @@ public class MovPlayer : MonoBehaviour
     private void Start()
     {
         Plar = GetComponent<PuloP>();
-        rb = GetComponent<Rigidbody>(); // Pega o Rigidbody automaticamente
+        rb = GetComponent<Rigidbody>(); 
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -39,14 +39,14 @@ public class MovPlayer : MonoBehaviour
 
     void FixedUpdate()
     {
-        //olha se as duas mãos estão grudadas usando seus outros scripts
+        //ve se as duas mãos tão grudadas
         bool duasMaosPresas = maoDireita.Grudou && maoEsquerda.Grudou;
 
         //olha se a câmera está olhando para baixo
         float anguloCamera = Camera.main.transform.localEulerAngles.x;
-        bool olhandoParaBaixo = (anguloCamera > 30f && anguloCamera < 85f);
+        bool olhandoParaBaixo = (anguloCamera > 45f && anguloCamera < 85f);
 
-        //se tudo for verdade, empurra o corpo para cima e um pouco para frente
+        
         if (duasMaosPresas && olhandoParaBaixo)
         {
             rb.AddForce(Vector3.up * forcaSubida, ForceMode.Acceleration);
