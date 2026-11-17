@@ -7,7 +7,7 @@ public class MovPlayer : MonoBehaviour
 
     public GrudDir maoDireita; 
     public GrudEsq maoEsquerda; 
-    public float forcaSubida = 20f;// Força para puxar o corpo para cima
+    public float forcaSubida = 20f;
     private Rigidbody rb;
 
     private void Start()
