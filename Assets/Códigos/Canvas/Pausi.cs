@@ -7,6 +7,7 @@ public class Pausi : MonoBehaviour
     public GameObject TelaPause;
     public GameObject TextAvanço;
     public bool Ativo = false;
+    public GameObject configTela;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,12 +23,12 @@ public class Pausi : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (!Ativo)
+            if (Ativo == false)
             { 
                 Pausar();
                 Debug.Log("Pauso legal");
             }
-            else if (Ativo)
+            else if (Ativo == true)
             {
                 Despausar();
                 Debug.Log("Despauso legal");
@@ -51,6 +52,7 @@ public class Pausi : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Ativo = false;
+        configTela.SetActive(false);
     }
     
     

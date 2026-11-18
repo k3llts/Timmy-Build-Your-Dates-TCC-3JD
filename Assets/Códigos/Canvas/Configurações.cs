@@ -12,8 +12,10 @@ public class Config : MonoBehaviour
         //pega o valor salvo na memoria, se não tiver usa esse aqui
         float sensiSalva = PlayerPrefs.GetFloat("Sensibilidade", 0.5f);
         sensib.value = sensiSalva;
+
+
     }
-    public void MudarSensibilidade(float valor)
+    public void Sensibilidade(float valor)
     {
         //deixa o valor salvo na memoria, as outras cenas podem ler
         PlayerPrefs.SetFloat("Sensibilidade", valor);
@@ -23,5 +25,22 @@ public class Config : MonoBehaviour
     {
         //muda o valor do slider para o do som
         Audiio.SetFloat("ParametroAudio", Mathf.Log10(valorDoSlider) * 20);
+    }
+
+   public void Batata() 
+    {
+        QualitySettings.SetQualityLevel(0, true);
+    }
+    public void Low()
+    {
+        QualitySettings.SetQualityLevel(1, true);
+    }
+    public void Mid()
+    {
+        QualitySettings.SetQualityLevel(2, true);
+    }
+    public void UltraEgo()
+    {
+        QualitySettings.SetQualityLevel(3, true);
     }
 }
