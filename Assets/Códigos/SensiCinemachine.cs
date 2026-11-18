@@ -3,17 +3,19 @@ using Unity.Cinemachine;
 
 public class SensiCinemachine : MonoBehaviour
 {
+    private CinemachineInputAxisController controle;
     void Start()
     {
-        // Pega o valor entre 0.1 e 1 salvo no menu
+        controle = GetComponent<CinemachineInputAxisController>();
+    }
+
+    private void FixedUpdate()
+    {
         float sensi = PlayerPrefs.GetFloat("Sensibilidade", 0.5f);
 
-        var controle = GetComponent<CinemachineInputAxisController>();
 
-        // coloca o valor do float como sensi
-        foreach (var eixo in controle.Controllers)
-        {
-            eixo.Input.Gain = sensi;
-        }
+        controle.Controllers[0].Input.Gain = sensi;
+
+        controle.Controllers[1].Input.Gain = sensi * -1;
     }
 }

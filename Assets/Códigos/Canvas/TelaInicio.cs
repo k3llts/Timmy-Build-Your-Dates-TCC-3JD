@@ -47,6 +47,8 @@ public class TelaInicio : MonoBehaviour
     {
         Itens.SetActive(false);
     }
+
+
     public void abrirConfig()
     {
         TelaConfig.SetActive(true);
