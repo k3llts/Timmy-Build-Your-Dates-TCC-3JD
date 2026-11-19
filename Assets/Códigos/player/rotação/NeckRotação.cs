@@ -8,17 +8,16 @@ public class RotacaoPescocoCamera : MonoBehaviour
 
     public float forca = 5000;
     public float suaveza = 50;
-    // O máximo que o pescoço pode virar para os lados (ex: 70 graus para a esquerda ou direita)
     public float limiteAnguloY = 70f;
 
     void Start()
     {
         joint = GetComponent<ConfigurableJoint>();
 
-        // Descobre qual é o osso do corpo onde o pescoço está preso (geralmente o peito/coluna)
+        //pega o osso em que esse ta conectado
         osso = joint.connectedBody != null ? joint.connectedBody.transform : transform.parent;
 
-        // Configura a força e o "freio" do pescoço para ele não girar rápido demais nem ficar mole
+        //seta os valores de força suavidade
         JointDrive drive = joint.slerpDrive;
         drive.positionSpring = forca;
         drive.positionDamper = suaveza;
@@ -28,29 +27,28 @@ public class RotacaoPescocoCamera : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Descobre para onde a câmera está olhando, ignorando se ela olha para cima ou para baixo
+        //pega a direção da camera ignorando cima ou baixo
         Vector3 frenteCamera = Camera.main.transform.forward;
         frenteCamera.y = 0;
         frenteCamera.Normalize();
 
-        // Transforma essa direção da câmera em uma rotação que a Unity entende
+        //transforma essa direção da câmera em uma rotação que a Unity entende
         Quaternion rotacaoMundoAlvo = Quaternion.LookRotation(frenteCamera);
 
-        // Calcula o quanto o pescoço precisa girar em relação ao corpo
+        //faz o calculo pro pescoço girar
         Quaternion rotationalLocalAlvo = Quaternion.Inverse(osso.rotation) * rotacaoMundoAlvo;
 
 
-        // Pega o ângulo de giro para os lados (eixo Y) em graus normais
+        //pega o ângulo de giro para os lados em graus normais
         float anguloY = rotationalLocalAlvo.eulerAngles.y;
 
-        /* Ajusta a conta para que virar para a esquerda seja um número negativo (ex: -70) 
-         e virar para a direita seja positivo (ex: 70)*/
+        //faz com que olhar para esquerda seja um numero negativo
         if (anguloY > 180) anguloY -= 360;
 
-        // Impede que o pescoço passe do limite máximo que você escolheu (evita girar 360 graus)
+        //não deixa ele passar do limite
         anguloY = Mathf.Clamp(anguloY, -limiteAnguloY, limiteAnguloY);
 
-        // Monta a rotação final já com esse limite aplicado
+        //aplica os calculos legais com o limite no pescoço
         rotationalLocalAlvo = Quaternion.Euler(0, anguloY, 0);
 
 
