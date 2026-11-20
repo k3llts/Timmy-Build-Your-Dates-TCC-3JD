@@ -19,7 +19,7 @@ public class abrirConfig : MonoBehaviour
     {
         telaC.SetActive(true);
     }
-    public void fecharConfig()
+    public void fecharC()
     {
         telaC.SetActive(false);
     }

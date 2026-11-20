@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ControlarAnimacaoGuia : MonoBehaviour
+public class MudarAnimação : MonoBehaviour
 {
     private Animator anim;
     private string estadoAtual = ""; // Guarda qual animação está tocando agora

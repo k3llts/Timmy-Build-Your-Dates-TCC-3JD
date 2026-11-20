@@ -2,205 +2,277 @@ using UnityEngine;
 
 public class pagar : MonoBehaviour
 {
-    public GameObject Mensagen;
     public passarfase passar;
-
-    // 'static' faz todas as hitboxes dividirem a mesma trava e o mesmo produto
-    private static bool temProduto = false;
-    private static Collider produtoAtual = null;
+    public static bool temProduto = false;
+    public static Collider produtoAtual = null;
 
     void Start()
     {
-        // Garante que a trava comece limpa quando a fase carregar
         temProduto = false;
         produtoAtual = null;
     }
 
-    //Entrada dos produtos
+    // Entrada dos produtos
     private void OnTriggerEnter(Collider other)
     {
-        // Se já tem um produto em qualquer hitbox, ignora totalmente
+        // Se algum presente passou em qualquer hitbox todas fecham para os outros
         if (temProduto) return;
 
-        //Produtos Maravilhosos---------------------------------------
+        // Produtos Maravilhosos---------------------------------------
         if (other.CompareTag("Urso"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 100;
-            temProduto = true;
-            produtoAtual = other; // Salva quem entrou
-            TelaInicio.ursin = true;
+            EntrarUrso(other);
         }
         else if (other.CompareTag("Globo"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 100;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.globo = true;
+            EntrarGlobo(other);
         }
         else if (other.CompareTag("CoolOvo"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 100;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.coolovo = true;
+            EntrarCoolOvo(other);
         }
-
-        //Produtos bom---------------------------------------
+        // Produtos bom---------------------------------------
         else if (other.CompareTag("Cueio"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 50;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.cueio = true;
+            EntrarCueio(other);
         }
         else if (other.CompareTag("Pantelone"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 50;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.pantelone = true;
+            EntrarPantelone(other);
         }
         else if (other.CompareTag("Corapeito"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 50;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.coracao = true;
+            EntrarCorapeito(other);
         }
-
-        //Produtos Ruim---------------------------------------
+        // Produtos Ruim---------------------------------------
         else if (other.CompareTag("NormalOvo"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 10;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.normalovo = true;
+            EntrarNormalOvo(other);
         }
         else if (other.CompareTag("MeiBom"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 10;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.bombom = true;
+            EntrarMeiBom(other);
         }
         else if (other.CompareTag("Bengala"))
         {
-            Mensagen.SetActive(true);
-            passar.PodeIr = true;
-            passarfase.Pontos = passarfase.Pontos + 10;
-            temProduto = true;
-            produtoAtual = other;
-            TelaInicio.bengala = true;
+            EntrarBengala(other);
         }
     }
 
-    //Saida dos produtos
+
+
+    private void EntrarUrso(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 100;
+        temProduto = true;
+        produtoAtual = other; // salva qual entrou
+        TelaInicio.ursin = true;
+    }
+
+    private void EntrarGlobo(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 100;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.globo = true;
+    }
+
+    private void EntrarCoolOvo(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 100;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.coolovo = true;
+    }
+
+    private void EntrarCueio(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 50;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.cueio = true;
+    }
+
+    private void EntrarPantelone(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 50;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.pantelone = true;
+    }
+
+    private void EntrarCorapeito(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 50;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.coracao = true;
+    }
+
+    private void EntrarNormalOvo(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 10;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.normalovo = true;
+    }
+
+    private void EntrarMeiBom(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 10;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.bombom = true;
+    }
+
+    private void EntrarBengala(Collider other)
+    {
+        passar.PodeIr = true;
+        passarfase.Pontos = passarfase.Pontos + 10;
+        temProduto = true;
+        produtoAtual = other;
+        TelaInicio.bengala = true;
+    }
+
+
+
+
+
+
+
     private void OnTriggerExit(Collider other)
     {
         // Só executa se quem saiu for EXATAMENTE o produto que estava travando
-        if (!temProduto || other != produtoAtual) return;
+        if (!pagar.temProduto || other != pagar.produtoAtual) return;
 
-        //Produtos Maravilhosos---------------------------------------
+        // Produtos Maravilhosos---------------------------------------
         if (other.CompareTag("Urso"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 100;
-            temProduto = false;
-            produtoAtual = null; // Libera a trava
-            TelaInicio.ursin = false;
+            SaiuUrso();
         }
         else if (other.CompareTag("Globo"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 100;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.globo = false;
+            SaiuGlobo();
         }
         else if (other.CompareTag("CoolOvo"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 100;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.coolovo = false;
+            SaiuCoolOvo();
         }
-
-        //Produtos bom---------------------------------------
+        // Produtos bom---------------------------------------
         else if (other.CompareTag("Cueio"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 50;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.cueio = false;
+            SaiuCueio();
         }
         else if (other.CompareTag("Corapeito"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 50;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.coracao = false;
+            SaiuCorapeito();
         }
         else if (other.CompareTag("Pantelone"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 50;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.pantelone = false;
+            SaiuPantelone();
         }
-
-        //Produtos Ruim---------------------------------------
+        // Produtos Ruim---------------------------------------
         else if (other.CompareTag("NormalOvo"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 10;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.normalovo = false;
+            SaiuNormalOvo();
         }
         else if (other.CompareTag("Bengala"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 10;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.bengala = false;
+            SaiuBengala();
         }
         else if (other.CompareTag("MeiBom"))
         {
-            Mensagen.SetActive(false);
-            passar.PodeIr = false;
-            passarfase.Pontos = passarfase.Pontos - 10;
-            temProduto = false;
-            produtoAtual = null;
-            TelaInicio.bombom = false;
+            SaiuMeiBom();
         }
     }
+
+    private void SaiuUrso()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 100;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null; // Libera a trava
+        TelaInicio.ursin = false;
+    }
+
+    private void SaiuGlobo()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 100;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.globo = false;
+    }
+
+    private void SaiuCoolOvo()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 100;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.coolovo = false;
+    }
+
+    private void SaiuCueio()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 50;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.cueio = false;
+    }
+
+    private void SaiuCorapeito()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 50;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.coracao = false;
+    }
+
+    private void SaiuPantelone()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 50;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.pantelone = false;
+    }
+
+    private void SaiuNormalOvo()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 10;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.normalovo = false;
+    }
+
+    private void SaiuBengala()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 10;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.bengala = false;
+    }
+
+    private void SaiuMeiBom()
+    {
+        passar.PodeIr = false;
+        passarfase.Pontos = passarfase.Pontos - 10;
+        pagar.temProduto = false;
+        pagar.produtoAtual = null;
+        TelaInicio.bombom = false;
+    }
+
 }

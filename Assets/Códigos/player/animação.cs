@@ -3,13 +3,13 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody), typeof(ConfigurableJoint))]
 public class SincronizarJoint : MonoBehaviour
 {
-    public Transform alvo;
+    public Transform Alvoanimacao;
 
     public float forca = 1500f;// foça pra copiar
     public float amortecimento = 50f;// suaveza do movimento 
 
   
-    private ConfigurableJoint joint;
+    private ConfigurableJoint junta;
     private Rigidbody rb;
 
     // rotações iniciais salvas no inicio do jogo
@@ -18,50 +18,44 @@ public class SincronizarJoint : MonoBehaviour
 
     void Start()
     {
-        joint = GetComponent<ConfigurableJoint>();
-        rb = GetComponent<Rigidbody>();
+        junta = GetComponent<ConfigurableJoint>();
 
-        ConfigurarFisica();
-        ConfigurarMotorDaJoint();
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.angularDamping = 0.5f;
+
+
+        FazerMotor();
         SalvarRotacoesIniciais();
     }
 
     void FixedUpdate()
     {
-        if (alvo == null) return;// só funciona se o alvo não for vazio
+        if (Alvoanimacao == null) return;// só funciona se o alvo não for vazio
 
-        
-        AplicarRotacaoDoAlvo(); //pega a rotação do alvo e aplica na joint
+
+        CopiarAlvo(); //pega a rotação do alvo e aplica na joint
     }
 
-
-
-    private void ConfigurarFisica()
-    {
-        //configura o rigidbody pra poder usar
-        rb.useGravity = false;
-        rb.angularDamping = 0.5f;
-    }
-
-    private void ConfigurarMotorDaJoint()
+    private void FazerMotor()
     {
         // Configuração do slerp no configurable joint
 
-        joint.rotationDriveMode = RotationDriveMode.Slerp;// muda o tipo da força pra slerp
+        junta.rotationDriveMode = RotationDriveMode.Slerp;// muda o tipo da força pra slerp
         JointDrive motor = new JointDrive();//criando novo motor para usar
         motor.positionSpring = forca;// escolhe a quantidade de força
         motor.positionDamper = amortecimento;// escolhe a quantidade de amortecimento da força
         motor.maximumForce = Mathf.Infinity; // Destrava o limite de força do motor
 
-        joint.slerpDrive = motor;//manda as configurações do motor pra joint
+        junta.slerpDrive = motor;//manda as configurações do motor pra joint
     }
 
     private void SalvarRotacoesIniciais()
     {
         //bem autoexplicativo, essa parte salva as rotações iniciais
-        if (alvo != null)
+        if (Alvoanimacao != null)
         {
-            rotacaoInicialAlvo = alvo.rotation;
+            rotacaoInicialAlvo = Alvoanimacao.rotation;
         }
         rotacaoInicialObjeto = transform.rotation;
         /*para fazer com que o movimento ignore as posições e se baseie apenas na posição inicial de cada um
@@ -71,24 +65,24 @@ public class SincronizarJoint : MonoBehaviour
 
 
 
-    private void AplicarRotacaoDoAlvo()
+    private void CopiarAlvo()
     {
         //descobre o quanto o alvo girou desde o inicio do jogo
-        Quaternion diferencaDeGiro = alvo.rotation * Quaternion.Inverse(rotacaoInicialAlvo);
+        Quaternion diferencaDeGiro = Alvoanimacao.rotation * Quaternion.Inverse(rotacaoInicialAlvo);
 
         // soma esse giro a rotação do nosso objeto
         Quaternion rotacaoDesejada = diferencaDeGiro * rotacaoInicialObjeto;
 
         // envia a rotação convertida para a Configurable Joint poder girar
-        joint.targetRotation = ConverterParaEspacoDaJoint(rotacaoDesejada);
+        junta.targetRotation = ArrumarValor(rotacaoDesejada);
     }
 
-    /*a configurable joint usa um sistema de eixos invertido
-    essa função traduz a rotação normal da Unity para o formato que a joint entende*/
-    private Quaternion ConverterParaEspacoDaJoint(Quaternion rotacaoNoMundo)
+    /*a configurable joint usa um sistema de eixos invertido,
+    essa função traduz a rotação normal da Unity para o formato que a joint usa*/
+    private Quaternion ArrumarValor(Quaternion rotacaoNoMundo)
     {
-        Vector3 direita = joint.axis;
-        Vector3 frente = Vector3.Cross(joint.axis, joint.secondaryAxis).normalized;
+        Vector3 direita = junta.axis;
+        Vector3 frente = Vector3.Cross(junta.axis, junta.secondaryAxis).normalized;
         Vector3 cima = Vector3.Cross(frente, direita).normalized;
 
         Quaternion espacoDaJoint = Quaternion.LookRotation(frente, cima);

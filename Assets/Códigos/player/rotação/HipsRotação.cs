@@ -3,26 +3,31 @@ using UnityEngine;
 [RequireComponent(typeof(ConfigurableJoint))]
 public class RotacaoOssoPelaCamera : MonoBehaviour
 {
-    private ConfigurableJoint joint;
+    private ConfigurableJoint junta;
 
-    public float forfa = 1000;
-    public float suavidade = 10;
+    public float forca = 1000;
+    public float amortecimento = 10;
 
     void Start()
     {
-        joint = GetComponent<ConfigurableJoint>();
+        junta = GetComponent<ConfigurableJoint>();
 
-        JointDrive drive = joint.slerpDrive;
+        JointDrive drive = junta.slerpDrive;
         
-            drive.positionSpring = forfa; 
-            drive.positionDamper = suavidade;
-            joint.slerpDrive = drive;
+            drive.positionSpring = forca; 
+            drive.positionDamper = amortecimento;
+            junta.slerpDrive = drive;
         
 
-        joint.rotationDriveMode = RotationDriveMode.Slerp;
+        junta.rotationDriveMode = RotationDriveMode.Slerp;
     }
 
     void FixedUpdate()
+    {
+        girarEmY();
+    }
+
+    void girarEmY() 
     {
         //direção da frente da camera
         Vector3 frenteDaCamera = Camera.main.transform.forward;
@@ -31,12 +36,11 @@ public class RotacaoOssoPelaCamera : MonoBehaviour
         frenteDaCamera.y = 0;
         frenteDaCamera.Normalize();
 
-        
-            //prepara a rotação pra ser usada
-            Quaternion rotacaoCameraAlvo = Quaternion.LookRotation(frenteDaCamera);
 
-            //aplica a rotação na joint
-            joint.targetRotation = Quaternion.Inverse(rotacaoCameraAlvo);
-        
+        //prepara a rotação pra ser usada
+        Quaternion rotacaoCameraAlvo = Quaternion.LookRotation(frenteDaCamera);
+
+        //aplica a rotação na joint
+        junta.targetRotation = Quaternion.Inverse(rotacaoCameraAlvo);
     }
 }

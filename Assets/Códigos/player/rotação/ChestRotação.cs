@@ -3,36 +3,41 @@ using UnityEngine;
 [RequireComponent(typeof(ConfigurableJoint))]
 public class RotacaoChestPelaCamera : MonoBehaviour
 {
-    private ConfigurableJoint joint;
-    public float forfa = 500;
-    public float suavizations = 10;
+    private ConfigurableJoint junta;
+    public float forca = 500;
+    public float amortecimento = 10;
 
     void Start()
     {
-        joint = GetComponent<ConfigurableJoint>();
+        junta = GetComponent<ConfigurableJoint>();
 
 
-        JointDrive drive = joint.slerpDrive;
+        JointDrive drive = junta.slerpDrive;
         
-            drive.positionSpring = forfa; 
-            drive.positionDamper = suavizations; 
-            joint.slerpDrive = drive;
+            drive.positionSpring = forca; 
+            drive.positionDamper = amortecimento; 
+            junta.slerpDrive = drive;
         
-        joint.rotationDriveMode = RotationDriveMode.Slerp;
+        junta.rotationDriveMode = RotationDriveMode.Slerp;
     }
 
     void FixedUpdate()
     {
-        //pega de rotation of da camera
+        girarEmX();
+    }
+
+    void girarEmX() 
+    {
+        //pega a rotation of camera
         Quaternion rotacaoCameraCompleta = Camera.main.transform.rotation;
 
         //pega os angulo em euler
         Vector3 eulerCamera = rotacaoCameraCompleta.eulerAngles;
 
-        //pega o x e o z mas deixa o y queto
+        //pega o x e o z mas deixa o y quieto
         Quaternion rotacaoAlvoXZ = Quaternion.Euler(eulerCamera.x, 0f, 0f);
 
-        //mete a rotação no coiso
-        joint.targetRotation = Quaternion.Inverse(rotacaoAlvoXZ);
+        //mete a rotação no osso
+        junta.targetRotation = Quaternion.Inverse(rotacaoAlvoXZ);
     }
 }
