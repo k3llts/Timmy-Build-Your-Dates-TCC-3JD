@@ -12,11 +12,14 @@ public class ChecarChão : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("chao")) {
-            Player.chao = true;
+        if (collision.gameObject.CompareTag("chao"))
+        {
+            TocouChao();   
         }
-
-        
     }
 
+    void TocouChao()
+    {
+        Player.TocandoChao = true;
+    }
 }

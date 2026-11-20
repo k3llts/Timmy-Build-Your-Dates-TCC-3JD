@@ -4,17 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class Pausi : MonoBehaviour
 {
-    public GameObject TelaPause;
-    public GameObject TextAvanço;
-    public bool Ativo = false;
+    public GameObject telaDePause;
+    
+    public bool pausado = false;
     public GameObject configTela;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TelaPause.SetActive(false);
+        telaDePause.SetActive(false);
         Time.timeScale = 1.0f;
-        Ativo = false;
+        pausado = false;
     }
 
 
@@ -23,12 +23,12 @@ public class Pausi : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (Ativo == false)
+            if (pausado == false)
             { 
                 Pausar();
                 Debug.Log("Pauso legal");
             }
-            else if (Ativo == true)
+            else if (pausado == true)
             {
                 Despausar();
                 Debug.Log("Despauso legal");
@@ -39,19 +39,19 @@ public class Pausi : MonoBehaviour
 
     public void Pausar() 
     {
-        TelaPause.SetActive(true);
+        telaDePause.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Ativo = true;
+        pausado = true;
     }
     public void Despausar()
     {
-        TelaPause.SetActive(false);
+        telaDePause.SetActive(false);
         Time.timeScale = 1.0f;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Ativo = false;
+        pausado = false;
         configTela.SetActive(false);
     }
     
@@ -60,10 +60,7 @@ public class Pausi : MonoBehaviour
     {
         SceneManager.LoadScene("TelaInicial");
     }
-    void Avançar() 
-    {
-        TextAvanço.SetActive(true);
-    }
+
     
 
 }

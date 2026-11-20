@@ -3,7 +3,6 @@ using UnityEngine;
 public class MovPlayer : MonoBehaviour
 {
     public float velocidade = 10f;
-    public PuloP Plar;
 
     public GrudDir maoDireita; 
     public GrudEsq maoEsquerda; 
@@ -12,7 +11,6 @@ public class MovPlayer : MonoBehaviour
 
     private void Start()
     {
-        Plar = GetComponent<PuloP>();
         rb = GetComponent<Rigidbody>(); 
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -40,7 +38,7 @@ public class MovPlayer : MonoBehaviour
     void FixedUpdate()
     {
         //ve se as duas mãos tão grudadas
-        bool duasMaosPresas = maoDireita.Grudou && maoEsquerda.Grudou;
+        bool duasMaosPresas = maoDireita.segurando && maoEsquerda.segurando;
 
         //olha se a câmera está olhando para baixo
         float anguloCamera = Camera.main.transform.localEulerAngles.x;

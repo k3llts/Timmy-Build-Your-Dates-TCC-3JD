@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Config : MonoBehaviour
 {
     public AudioMixer Audiio;
-    public Slider sliderVolume;
+    public Slider volume;
     public Slider sensib;
 
 
@@ -15,7 +15,7 @@ public class Config : MonoBehaviour
         float sensiSalva = PlayerPrefs.GetFloat("Sensibilidade", 0.5f);
         sensib.value = sensiSalva;
 
-        sliderVolume.value = 1f;
+        volume.value = 1f;
         Volume(0.5f);
     }
     public void Sensibilidade(float valor)
@@ -24,10 +24,10 @@ public class Config : MonoBehaviour
         PlayerPrefs.SetFloat("Sensibilidade", valor);
     }
 
-    public void Volume(float valorDoSlider)
+    public void Volume(float numero)
     {
         //muda o valor do slider para o do som
-        Audiio.SetFloat("ParametroAudio", Mathf.Log10(valorDoSlider) * 20);
+        Audiio.SetFloat("ParametroAudio", Mathf.Log10(numero) * 20);
     }
 
 
@@ -44,7 +44,7 @@ public class Config : MonoBehaviour
     {
         QualitySettings.SetQualityLevel(2, true);
     }
-    public void UltraEgo()
+    public void Ultra()
     {
         QualitySettings.SetQualityLevel(3, true);
     }

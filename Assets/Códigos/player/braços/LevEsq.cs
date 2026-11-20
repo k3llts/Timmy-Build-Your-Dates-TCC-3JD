@@ -1,61 +1,61 @@
 using UnityEngine;
 
-[RequireComponent(typeof(ConfigurableJoint))]
+//[RequireComponent(typeof(ConfigurableJoint))]
 public class LevantarBracoEsq : MonoBehaviour
 {
-    private ConfigurableJoint joint;
+    private ConfigurableJoint braco;
 
 
-    public float forcaMaximaSpring = 10000f;
-    public float forcaMaximaDamper = 100f;
+    public float bracoForteMola = 10000f;
+    public float bracoForteAmortecer = 100f;
 
 
-    public float forcaMinimaSpring = 25f;
-    public float forcaMinimaDamper = 5f;
+    public float bracoFracoMola = 25f;
+    public float bracofracoAmortecer = 5f;
 
 
 
     void Start()
     {
-        joint = GetComponent<ConfigurableJoint>();
-        joint.rotationDriveMode = RotationDriveMode.Slerp;
+        braco = GetComponent<ConfigurableJoint>();
+        braco.rotationDriveMode = RotationDriveMode.Slerp;
 
-        // Inicia com as forças baixas
-        Fraco();
+        //começa sem força
+        BracoFraco();
     }
 
     void Update()
     {
-        // 0 detecta o botão esquerdo do mouse
+        //botão esquerdo do mouse (0)
         if (Input.GetMouseButtonDown(0))
         {
-            Forte();
+            BracoForte();
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            Fraco();
+            BracoFraco();
         }
     }
 
-    // Função chamada ao clicar com o mouse
-    public void Forte()
+
+     void BracoForte()
     {
-        JointDrive drive = joint.slerpDrive;
+        JointDrive drive = braco.slerpDrive;
 
-        drive.positionSpring = forcaMaximaSpring;
-        drive.positionDamper = forcaMaximaDamper;
+        drive.positionSpring = bracoForteMola;
+        drive.positionDamper = bracoForteAmortecer;
 
-        joint.slerpDrive = drive;
+        braco.slerpDrive = drive;
     }
 
-    // Função chamada ao soltar o mouse
-    public void Fraco()
+
+     void BracoFraco()
     {
-        JointDrive drive = joint.slerpDrive;
+        JointDrive drive = braco.slerpDrive;
 
-        drive.positionSpring = forcaMinimaSpring;
-        drive.positionDamper = forcaMinimaDamper;
+        drive.positionSpring = bracoFracoMola;
+        drive.positionDamper = bracofracoAmortecer;
 
-        joint.slerpDrive = drive;
+        braco.slerpDrive = drive;
     }
 }

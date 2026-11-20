@@ -3,29 +3,34 @@ using UnityEngine;
 [RequireComponent(typeof(ConfigurableJoint))]
 public class RotacaoPescocoCamera : MonoBehaviour
 {
-    private ConfigurableJoint joint;
-    private Transform osso;
+    private ConfigurableJoint junta;
+    private Transform objetoConectado;
 
     public float forca = 5000;
-    public float suaveza = 50;
-    public float limiteAnguloY = 70f;
+    public float amortecimento = 50;
+    public float limiteEmY = 70f;
 
     void Start()
     {
-        joint = GetComponent<ConfigurableJoint>();
+        junta = GetComponent<ConfigurableJoint>();
 
         //pega o osso em que esse ta conectado
-        osso = joint.connectedBody != null ? joint.connectedBody.transform : transform.parent;
+        objetoConectado = junta.connectedBody != null ? junta.connectedBody.transform : transform.parent;
 
         //seta os valores de força suavidade
-        JointDrive drive = joint.slerpDrive;
+        JointDrive drive = junta.slerpDrive;
         drive.positionSpring = forca;
-        drive.positionDamper = suaveza;
-        joint.slerpDrive = drive;
-        joint.rotationDriveMode = RotationDriveMode.Slerp;
+        drive.positionDamper = amortecimento;
+        junta.slerpDrive = drive;
+        junta.rotationDriveMode = RotationDriveMode.Slerp;
     }
 
     void FixedUpdate()
+    {
+        girarComLimite();
+    }
+
+    void girarComLimite() 
     {
         //pega a direção da camera ignorando cima ou baixo
         Vector3 frenteCamera = Camera.main.transform.forward;
@@ -36,7 +41,7 @@ public class RotacaoPescocoCamera : MonoBehaviour
         Quaternion rotacaoMundoAlvo = Quaternion.LookRotation(frenteCamera);
 
         //faz o calculo pro pescoço girar
-        Quaternion rotationalLocalAlvo = Quaternion.Inverse(osso.rotation) * rotacaoMundoAlvo;
+        Quaternion rotationalLocalAlvo = Quaternion.Inverse(objetoConectado.rotation) * rotacaoMundoAlvo;
 
 
         //pega o ângulo de giro para os lados em graus normais
@@ -46,13 +51,13 @@ public class RotacaoPescocoCamera : MonoBehaviour
         if (anguloY > 180) anguloY -= 360;
 
         //não deixa ele passar do limite
-        anguloY = Mathf.Clamp(anguloY, -limiteAnguloY, limiteAnguloY);
+        anguloY = Mathf.Clamp(anguloY, -limiteEmY, limiteEmY);
 
         //aplica os calculos legais com o limite no pescoço
         rotationalLocalAlvo = Quaternion.Euler(0, anguloY, 0);
 
 
         // Aplica o giro final na junta do pescoço (invertido porque esse componente da Unity funciona ao contrário)
-        joint.targetRotation = Quaternion.Inverse(rotationalLocalAlvo);
+        junta.targetRotation = Quaternion.Inverse(rotationalLocalAlvo);
     }
 }

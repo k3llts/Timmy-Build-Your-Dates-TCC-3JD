@@ -2619,7 +2619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &88235506
 BoxCollider:
@@ -10415,7 +10414,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &274666104
 BoxCollider:
@@ -11673,7 +11671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &306045707
 BoxCollider:
@@ -14961,7 +14958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Config
   Audiio: {fileID: 24100000, guid: 549b44e9e6706b54fb70f511ab38f416, type: 2}
-  sliderVolume: {fileID: 1848879853}
+  volume: {fileID: 1848879853}
   sensib: {fileID: 221007487}
 --- !u!114 &385959677
 MonoBehaviour:
@@ -17386,8 +17383,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::passarfase
   PodeIr: 0
-  FimTexto: {fileID: 0}
-  HitPagar: {fileID: 1196568289}
+  fimTexto: {fileID: 0}
+  "textoAvan\xE7ar": {fileID: 1767644300}
 --- !u!65 &470860170
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21507,7 +21504,7 @@ PrefabInstance:
       objectReference: {fileID: 385959676}
     - target: {fileID: 579562626757283463, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UltraEgo
+      value: Ultra
       objectReference: {fileID: 0}
     - target: {fileID: 1038807894792947098, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
       propertyPath: m_Pivot.x
@@ -21616,6 +21613,18 @@ PrefabInstance:
     - target: {fileID: 2497009572526155331, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701995294631468618, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 385959676}
+    - target: {fileID: 2701995294631468618, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 2701995294631468618, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Config, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3363941322642896010, guid: df80bb7d67cdd9344893c1a0a8f20ff8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21944,7 +21953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f7b728df4a94e40856928926255519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SincronizarJoint
-  alvo: {fileID: 183586973}
+  Alvoanimacao: {fileID: 183586973}
   forca: 1500
   amortecimento: 50
 --- !u!1001 &587171513
@@ -27755,7 +27764,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &762826084
 BoxCollider:
@@ -28339,7 +28347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &768007622
 BoxCollider:
@@ -30760,7 +30767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &836224493
 BoxCollider:
@@ -30857,7 +30863,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f7b728df4a94e40856928926255519, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SincronizarJoint
-  alvo: {fileID: 55861055}
+  Alvoanimacao: {fileID: 55861055}
   forca: 1500
   amortecimento: 50
 --- !u!1 &846559310 stripped
@@ -40786,8 +40792,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GrudEsq
   botaoMouse: 0
-  junta: {fileID: 0}
-  Grudou: 0
+  juntaPresa: {fileID: 0}
+  segurando: 0
 --- !u!1001 &1039677378
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48181,7 +48187,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!1001 &1203615504
 PrefabInstance:
@@ -57443,7 +57448,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &1490459804
 BoxCollider:
@@ -73934,7 +73938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &1893998066
 BoxCollider:
@@ -75725,7 +75728,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GrudDir
   botaoMouse: 1
   junta: {fileID: 0}
-  Grudou: 0
+  segurando: 0
 --- !u!1001 &1939603120
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -77461,6 +77464,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1983312441 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5616039991706739957, guid: 0109e2ee65a0a6c4e983f0b6cf6f776a, type: 3}
+  m_PrefabInstance: {fileID: 541033195442772658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1987339700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81748,7 +81756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03396d7bfd4184458893662b33d6b28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::pagar
-  Mensagen: {fileID: 1767644300}
   passar: {fileID: 470860169}
 --- !u!65 &2113556894
 BoxCollider:
@@ -83620,6 +83627,10 @@ PrefabInstance:
       propertyPath: configTela
       value: 
       objectReference: {fileID: 1767907001}
+    - target: {fileID: 480859689724607704, guid: 0109e2ee65a0a6c4e983f0b6cf6f776a, type: 3}
+      propertyPath: telaDePause
+      value: 
+      objectReference: {fileID: 1983312441}
     - target: {fileID: 1465298826478516552, guid: 0109e2ee65a0a6c4e983f0b6cf6f776a, type: 3}
       propertyPath: m_text
       value: dicas de possiveis presentes
@@ -84247,6 +84258,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 598046128708592032, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: bracoFracoMola
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 598046128708592032, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: forcaMaximaDamper
       value: 1000
       objectReference: {fileID: 0}
@@ -84257,6 +84272,10 @@ PrefabInstance:
     - target: {fileID: 598046128708592032, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: forcaMinimaSpring
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 598046128708592032, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: bracofracoAmortecer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 810033683577999540, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: m_Layer
@@ -84267,6 +84286,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1449420668236299441, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: bracoFracoMola
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449420668236299441, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: forcaMaximaDamper
       value: 1000
       objectReference: {fileID: 0}
@@ -84277,6 +84300,10 @@ PrefabInstance:
     - target: {fileID: 1449420668236299441, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: forcaMinimaSpring
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449420668236299441, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: bracofracoAmortecer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1624716290678265537, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: m_Name
@@ -84377,6 +84404,18 @@ PrefabInstance:
     - target: {fileID: 3939606734646732526, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020809664322498669, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: forca
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4020809664322498669, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: amortecimento
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 4075842611298456872, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
+      propertyPath: forcaPulo
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 4075842611298456872, guid: bfea8cbbd3fc4d343a02d5309e67a2a1, type: 3}
       propertyPath: forcaDoPulo

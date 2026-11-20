@@ -3,8 +3,8 @@ using UnityEngine;
 public class PuloP : MonoBehaviour
 {
     private Rigidbody rb;
-    public float forcaDoPulo = 80.0f;
-    public bool chao = true;
+    public float forcaPulo = 80.0f;
+    public bool TocandoChao = true;
 
     void Start()
     {
@@ -13,7 +13,7 @@ public class PuloP : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && chao)
+        if (Input.GetKeyDown(KeyCode.Space) && TocandoChao)
         {
             Pular();
         }
@@ -21,7 +21,7 @@ public class PuloP : MonoBehaviour
 
     void Pular()
     {
-        rb.AddForce(Vector3.up * forcaDoPulo, ForceMode.Impulse);
-        chao = false;
+        rb.AddForce(Vector3.up * forcaPulo, ForceMode.Impulse);
+        TocandoChao = false;
     }
 }
