@@ -4,9 +4,13 @@ using TMPro;
 public class passarfase : MonoBehaviour
 {
     public bool PodeIr = false;
-    public static int Pontos = 0;
-    public TextMeshProUGUI fimTexto;
     public GameObject textoAvançar;
+
+
+    public static int Pontos = 0;
+    public GameObject StrNormal;
+    public GameObject StrSorridente;
+    public GameObject StrFeliz;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -17,15 +21,16 @@ public class passarfase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 4 && fimTexto != null)
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
-            mensagemFimJogo();
+            FimJogo();
         }
+
         if (PodeIr) 
         {
             mensagemFimFase();
         }
-        if (!PodeIr)
+        else if (!PodeIr)
         {
             semMensagemFimFase();
         }
@@ -52,19 +57,42 @@ public class passarfase : MonoBehaviour
             Debug.Log("acabou a cena");
         }
     }
-    void mensagemFimJogo()
+    void FimJogo()
     {
-        fimTexto.text = $"Você conseguiu {Pontos} pontos, parabéns";
+        if (Pontos >= 300 && StrFeliz != null) 
+        {
+            StrFeliz.SetActive(true);
+        }
+
+
+        if (Pontos >= 110 && StrSorridente != null)
+        {
+            StrSorridente.SetActive(true);
+        }
+
+
+        if (Pontos >= 30 && StrNormal != null)
+        {
+            StrNormal.SetActive(true);
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
 
     void mensagemFimFase()
     {
-        textoAvançar.SetActive(true);
+        if (textoAvançar != null) 
+        { 
+            textoAvançar.SetActive(true);
+        }
     }
     void semMensagemFimFase() 
     {
-        textoAvançar.SetActive(false);
+
+        if (textoAvançar != null)
+        {
+            textoAvançar.SetActive(false);
+        }
     }
 }

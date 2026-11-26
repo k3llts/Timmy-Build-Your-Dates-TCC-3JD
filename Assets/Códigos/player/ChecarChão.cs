@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class ChecarChão : MonoBehaviour
 {
-    public PuloP Player;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public PuloP CPulo;
     void Start()
     {
-        Player = GameObject.FindFirstObjectByType<PuloP>();
+        CPulo = GameObject.FindFirstObjectByType<PuloP>();
 
     }
 
@@ -20,6 +19,6 @@ public class ChecarChão : MonoBehaviour
 
     void TocouChao()
     {
-        Player.TocandoChao = true;
+        CPulo.TocandoChao = true;
     }
 }

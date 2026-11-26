@@ -63,83 +63,83 @@ public class pagar : MonoBehaviour
 
     private void EntrarUrso(Collider other)
     {
+        TelaInicio.ursin = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 100;
         temProduto = true;
         produtoAtual = other; // salva qual entrou
-        TelaInicio.ursin = true;
     }
 
     private void EntrarGlobo(Collider other)
     {
+        TelaInicio.globo = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 100;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.globo = true;
     }
 
     private void EntrarCoolOvo(Collider other)
     {
+        TelaInicio.coolovo = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 100;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.coolovo = true;
     }
 
     private void EntrarCueio(Collider other)
     {
+        TelaInicio.cueio = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 50;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.cueio = true;
     }
 
     private void EntrarPantelone(Collider other)
     {
+        TelaInicio.pantelone = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 50;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.pantelone = true;
     }
 
     private void EntrarCorapeito(Collider other)
     {
+        TelaInicio.coracao = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 50;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.coracao = true;
     }
 
     private void EntrarNormalOvo(Collider other)
     {
+        TelaInicio.normalovo = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 10;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.normalovo = true;
     }
 
     private void EntrarMeiBom(Collider other)
     {
+        TelaInicio.bombom = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 10;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.bombom = true;
     }
 
     private void EntrarBengala(Collider other)
     {
+        TelaInicio.bengala = true;
         passar.PodeIr = true;
         passarfase.Pontos = passarfase.Pontos + 10;
         temProduto = true;
         produtoAtual = other;
-        TelaInicio.bengala = true;
     }
 
 
@@ -196,83 +196,83 @@ public class pagar : MonoBehaviour
 
     private void SaiuUrso()
     {
+        TelaInicio.ursin = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 100;
         pagar.temProduto = false;
         pagar.produtoAtual = null; // Libera a trava
-        TelaInicio.ursin = false;
     }
 
     private void SaiuGlobo()
     {
+        TelaInicio.globo = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 100;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.globo = false;
     }
 
     private void SaiuCoolOvo()
     {
+        TelaInicio.coolovo = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 100;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.coolovo = false;
     }
 
     private void SaiuCueio()
     {
+        TelaInicio.cueio = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 50;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.cueio = false;
     }
 
     private void SaiuCorapeito()
     {
+        TelaInicio.coracao = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 50;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.coracao = false;
     }
 
     private void SaiuPantelone()
     {
+        TelaInicio.pantelone = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 50;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.pantelone = false;
     }
 
     private void SaiuNormalOvo()
     {
+        TelaInicio.normalovo = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 10;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.normalovo = false;
     }
 
     private void SaiuBengala()
     {
+        TelaInicio.bengala = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 10;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.bengala = false;
     }
 
     private void SaiuMeiBom()
     {
+        TelaInicio.bombom = false;
         passar.PodeIr = false;
         passarfase.Pontos = passarfase.Pontos - 10;
         pagar.temProduto = false;
         pagar.produtoAtual = null;
-        TelaInicio.bombom = false;
     }
 
 }

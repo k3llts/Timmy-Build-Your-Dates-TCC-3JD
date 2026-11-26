@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class GrudEsq : MonoBehaviour
 {
-    public int botaoMouse = 0; // 0 para botão esquerdo, 1 para botão direito
     [HideInInspector] public FixedJoint juntaPresa;
     public bool segurando = false;
 
     void Update()
     {
         // Se soltar o botão do mouse e estiver grudado, destrói a junta
-        if (Input.GetMouseButtonUp(botaoMouse) && juntaPresa != null)
+        if (Input.GetMouseButtonUp(0) && juntaPresa != null)
         {
             soltarMao();
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         segurarMao(collision);
     }
@@ -29,12 +28,12 @@ public class GrudEsq : MonoBehaviour
     void segurarMao(Collision collision) 
     {
         //quando clica o mouse e a junta não existe
-        if (Input.GetMouseButton(botaoMouse) && juntaPresa == null)
+        if (Input.GetMouseButton(0) && juntaPresa == null)
         {
-            //não gruda no player
+            //impede de grudar no player
             if (collision.gameObject.CompareTag("Player")) return;
 
-            //vai conectar no que foi tocado, mas se não tiver fisica(rigidbody) vai colar no player
+            //vai conectar no que foi tocado, mas se não tiver fisica(rigidbody) o player fica preso
             juntaPresa = gameObject.AddComponent<FixedJoint>();
             juntaPresa.connectedBody = collision.gameObject.GetComponent<Rigidbody>();
             segurando = true;

@@ -19,19 +19,25 @@ public class MovPlayer : MonoBehaviour
 
     void Update()
     {
+        //pega os controles no teclado(wasd)
         float moverHorizontal = Input.GetAxis("Horizontal");
         float moverVertical = Input.GetAxis("Vertical");
 
+        //pega os valores da camera, frente e direita
         Vector3 frenteDaCamera = Camera.main.transform.forward;
         Vector3 direitaDaCamera = Camera.main.transform.right;
 
+        /*retira o movimento em y dos valores para eles serem ignorados
+        e arruma para que os inputs continuem funcionando*/
         frenteDaCamera.y = 0;
         direitaDaCamera.y = 0;
         frenteDaCamera.Normalize();
         direitaDaCamera.Normalize();
 
+        //faz o calculo da direção com os valores de cima
         Vector3 direcaoFinal = (-1 * frenteDaCamera * moverVertical) + (direitaDaCamera * moverHorizontal);
 
+        //executa o movimento
         transform.Translate(direcaoFinal * velocidade * Time.deltaTime, Space.World);
     }
 

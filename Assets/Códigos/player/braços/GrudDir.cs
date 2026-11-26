@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class GrudDir : MonoBehaviour
 {
-    public int botaoMouse = 1; // 0 para botão esquerdo, 1 para botão direito
     [HideInInspector] public FixedJoint junta;
     public bool segurando = false;
 
     void Update()
     {
         // Se soltar o botão do mouse e estiver grudado, destrói a junta
-        if (Input.GetMouseButtonUp(botaoMouse) && junta != null)
+        if (Input.GetMouseButtonUp(1) && junta != null)
         {
             soltarMao();
         }
     }
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionStay(Collision collision)
     {
         segurarMao(collision);
     }
@@ -29,7 +28,7 @@ public class GrudDir : MonoBehaviour
     void segurarMao(Collision collision)
     {
         //quando clica o mouse e a junta não existe
-        if (Input.GetMouseButton(botaoMouse) && junta == null)
+        if (Input.GetMouseButton(1) && junta == null)
         {
             //não gruda no player
             if (collision.gameObject.CompareTag("Player")) return;

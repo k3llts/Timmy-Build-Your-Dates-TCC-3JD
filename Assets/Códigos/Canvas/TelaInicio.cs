@@ -3,9 +3,18 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class TelaInicio : MonoBehaviour
-{
+{ 
+    //botões
+    public GameObject Iniciar;
+    public GameObject Config;
     public GameObject Itens;
-    public GameObject TelaConfig;
+
+    //Titulo
+    public GameObject Titulo;
+
+    //Telas
+    public GameObject painelItens;
+    public GameObject telaC;
 
     [HideInInspector] public static bool ursin = false;
     [HideInInspector] public static bool coracao = false;
@@ -23,7 +32,7 @@ public class TelaInicio : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Itens.SetActive(false);
+        painelItens.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,21 +50,45 @@ public class TelaInicio : MonoBehaviour
 
     public void VerItens()
     {
-        Itens.SetActive(true);
+        painelItens.SetActive(true);
+
+        Iniciar.SetActive(false);
+        Config.SetActive(false);
+        Itens.SetActive(false);
+
+        Titulo.SetActive(false);
     }
     public void NaoVerItens()
     {
+        painelItens.SetActive(false);
+
+        Iniciar.SetActive(true);
+        Config.SetActive(true);
+        Itens.SetActive(true);
+
+        Titulo.SetActive(true);
+    }
+
+
+
+    public void abrirC()
+    {
+        telaC.SetActive(true);
+
+        Iniciar.SetActive(false);
+        Config.SetActive(false);
         Itens.SetActive(false);
+
+        Titulo.SetActive(false);
     }
-
-
-    public void abrirConfig()
+    public void fecharC()
     {
-        TelaConfig.SetActive(true);
-    }
-    public void fecharConfig()
-    {
-        TelaConfig.SetActive(false);
-    }
+        telaC.SetActive(false);
 
+        Iniciar.SetActive(true);
+        Config.SetActive(true);
+        Itens.SetActive(true);
+
+        Titulo.SetActive(true);
+    }
 }

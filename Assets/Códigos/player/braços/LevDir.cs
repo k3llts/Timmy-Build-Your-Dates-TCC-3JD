@@ -50,12 +50,12 @@ public class LevantarBracoDir : MonoBehaviour
 
 
      void BracoFraco()
-    {
+     {
         JointDrive drive = braco.slerpDrive;
 
         drive.positionSpring = bracoFracoMola;
         drive.positionDamper = bracofracoAmortecer;
 
         braco.slerpDrive = drive;
-    }
+     }
 }
