@@ -7,7 +7,6 @@ public class SincronizarJoint : MonoBehaviour
 
     public float forca = 1500f;// foça pra copiar
     public float amortecimento = 50f;// suaveza do movimento 
-
   
     private ConfigurableJoint junta;
     private Rigidbody rb;
@@ -63,22 +62,6 @@ public class SincronizarJoint : MonoBehaviour
         ignorando se eles já estavam ou não apontando para a mesma direção*/
     }
 
-
-
-    private void CopiarAlvo()
-    {
-        //descobre o quanto o alvo girou desde o inicio do jogo
-        Quaternion diferencaDeGiro = Alvoanimacao.rotation * Quaternion.Inverse(rotacaoInicialAlvo);
-
-        // soma esse giro a rotação do nosso objeto
-        Quaternion rotacaoDesejada = diferencaDeGiro * rotacaoInicialObjeto;
-
-        // envia a rotação convertida para a Configurable Joint poder girar
-        junta.targetRotation = ArrumarValor(rotacaoDesejada);
-    }
-
-    /*a configurable joint usa um sistema de eixos invertido,
-    essa função traduz a rotação normal da Unity para o formato que a joint usa*/
     private Quaternion ArrumarValor(Quaternion rotacaoNoMundo)
     {
         Vector3 direita = junta.axis;
@@ -92,5 +75,17 @@ public class SincronizarJoint : MonoBehaviour
         resultado *= espacoDaJoint;
 
         return resultado;
+    }
+
+    private void CopiarAlvo()
+    {
+        //descobre o quanto o alvo girou desde o inicio do jogo
+        Quaternion diferencaDeGiro = Alvoanimacao.rotation * Quaternion.Inverse(rotacaoInicialAlvo);
+
+        // soma esse giro a rotação do nosso objeto
+        Quaternion rotacaoDesejada = diferencaDeGiro * rotacaoInicialObjeto;
+
+        // envia a rotação convertida para a Configurable Joint poder girar
+        junta.targetRotation = ArrumarValor(rotacaoDesejada);
     }
 }

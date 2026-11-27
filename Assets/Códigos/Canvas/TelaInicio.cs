@@ -16,6 +16,9 @@ public class TelaInicio : MonoBehaviour
     public GameObject painelItens;
     public GameObject telaC;
 
+    public GameObject cutscene;
+
+
     [HideInInspector] public static bool ursin = false;
     [HideInInspector] public static bool coracao = false;
     [HideInInspector] public static bool bombom = false;
@@ -30,15 +33,23 @@ public class TelaInicio : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         painelItens.SetActive(false);
+
+        Invoke("PararVideo", 130f);
     }
 
     // Update is called once per frame
     void Update()
     {
 
+    }
+    private void PararVideo()
+    {
+        cutscene.SetActive(false);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 

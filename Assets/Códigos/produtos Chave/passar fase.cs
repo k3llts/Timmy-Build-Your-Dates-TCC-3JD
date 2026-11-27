@@ -1,21 +1,33 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using UnityEngine.Video;
 public class passarfase : MonoBehaviour
 {
     public bool PodeIr = false;
     public GameObject textoAvançar;
+    public VideoPlayer videoPlayer;
+    public GameObject telaDoVideo;
 
 
     public static int Pontos = 0;
     public GameObject StrNormal;
     public GameObject StrSorridente;
     public GameObject StrFeliz;
+    public TMP_Text Indicar;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        telaDoVideo.SetActive(false);
+        if (Pontos == 300)
+        {
+            Indicar.text = "Pontuação perfeita";
+        }
+        else if (Pontos < 300)
+        {
+            Indicar.text = "Você pode fazer melhor pelo seu amor!";
+        }
     }
 
     // Update is called once per frame
@@ -43,7 +55,21 @@ public class passarfase : MonoBehaviour
         }
     }
 
-
+    public void CutsceneFim() 
+    {
+        if (Pontos == 300) 
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            telaDoVideo.SetActive(true);
+            videoPlayer.Play();
+        }
+        else if (Pontos < 300) 
+        {
+            voltarInicio();
+        }
+        Invoke("voltarInicio", 171f);
+    }
 
     public void voltarInicio()
     {
@@ -71,7 +97,7 @@ public class passarfase : MonoBehaviour
         }
 
 
-        if (Pontos >= 30 && StrNormal != null)
+        if (Pontos >= 10 && StrNormal != null)
         {
             StrNormal.SetActive(true);
         }
